@@ -1,6 +1,8 @@
 package com.example.uilove.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
 import androidx.activity.EdgeToEdge;
@@ -26,9 +28,13 @@ ActivityMainBinding binding;
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         statusBarColor();
         initRecyclerView();
+        bottomNavigation();
+    }
+
+    private void bottomNavigation() {
+        binding.cartBtn.setOnClickListener(v -> startActivities(new Intent[]{new Intent(MainActivity.this, CartActivity.class)}));
     }
 
     private void statusBarColor() {
